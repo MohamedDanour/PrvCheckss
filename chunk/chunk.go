@@ -11,15 +11,16 @@ func Chunk(slice []int, size int) {
 		fmt.Println()
 		return
 	}
-	newArr:= []int
-	for i := 1 : i <= size ; i++ {
-		while len(newArr) != size {
-			newArr += 
+	var result [][]int
+	for i := 0; i < len(slice); i += size {
+		end := i + size
+		if end > len(slice) {
+			end = len(slice)
 		}
+		result = append(result, slice[i:end])
 	}
 
-
-
+	fmt.Println(result)
 }
 
 func main() {
