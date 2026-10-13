@@ -17,13 +17,12 @@ func CamelToSnakeCase(s string) string {
 		return s
 	}
 
-	if s[0] >= 'a' && s[0] <= 'z' || s[0] >= 'A' && s[0] <= 'Z' {
 		for i := 0; i < len(s); i++ {
 			if i > 0 && (s[i] >= 'A' && s[i] <= 'Z') && (s[i-1] >= 'a' && s[i-1] <= 'z') {
 				newString += "_"
 			}
 			newString += string(s[i])
-		}
+		
 	}
 	return newString
 }
