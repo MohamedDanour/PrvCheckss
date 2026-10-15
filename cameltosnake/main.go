@@ -27,7 +27,7 @@ func CamelToSnakeCase(s string) string {
 	return newString
 }
 
-/*
+
 func CamelToSnakeCase(s string) string{
   if s == "" {
     return s
@@ -35,6 +35,7 @@ func CamelToSnakeCase(s string) string{
   if s[len(s)-1] >= 'A' && s[len(s)-1] <= 'Z' {
     return s
   }
+  
 NewStr := ""
   for i := 0 ; i <= len(s) -1  ; i++ {
     if i -1 >=0 && (s[i] >= 'A' && s[i] <= 'Z') &&  (s[i+1] >= 'a' && s[i+1] <= 'z') &&  (s[i-1] >= 'a' && s[i-1] <= 'z') {
@@ -44,7 +45,7 @@ NewStr := ""
   }
       return NewStr
 }
-*/
+
 
 func main() {
 	fmt.Println(CamelToSnakeCase("HelloWorld"))

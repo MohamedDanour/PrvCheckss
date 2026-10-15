@@ -6,7 +6,7 @@ func LongestWord(s string) string {
 	newArr := []string{}
 	word := ""
 	index := 0
-	for len(s)-1 > index {
+	for len(s) > index {
 		for index <= len(s)-1 && s[index] != ' ' {
 			word += string(s[index])
 			index++
@@ -26,9 +26,6 @@ func LongestWord(s string) string {
 	for x := 0; x <= len(newArr)-1; x++ {
 		if len(Newstring) < len(newArr[x]) {
 			Newstring = newArr[x]
-		} else if len(Newstring) == len(newArr[x]) {
-			return Newstring
-
 		}
 	}
 	return Newstring

@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 )
-
+ 
 func IsPrime(input int) bool {
 	if input == 1 {
 		return false
@@ -20,6 +20,7 @@ func IsPrime(input int) bool {
 	}
 	return true
 }
+
 func Sum_PreviousPrime(result int) int {
 	Sum := 0
 	for i := result; i >= 2; i-- {
@@ -39,7 +40,6 @@ func Atoi(k string) int {
 	}
 	return result
 }
-
 
 func main() {
 	fmt.Print(Sum_PreviousPrime(Atoi(os.Args[1])))
