@@ -1,10 +1,11 @@
 package main
 
 import (
-	"fmt"
 	"os"
+
+	"github.com/01-edu/z01"
 )
- 
+
 func IsPrime(input int) bool {
 	if input == 1 {
 		return false
@@ -41,6 +42,12 @@ func Atoi(k string) int {
 	return result
 }
 
+func runee(k int) rune {
+	
+
+
+}
+
 func main() {
-	fmt.Print(Sum_PreviousPrime(Atoi(os.Args[1])))
+	z01.PrintRune(runee(Sum_PreviousPrime(Atoi(os.Args[1]))))
 }

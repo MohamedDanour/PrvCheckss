@@ -4,22 +4,24 @@ import (
 	"fmt"
 )
 
-func IsCapitalized(s string) bool {
-	if s == "" {
-		return false
+func WeAreUnique(str1, str2 string) int {
+	if str1 == "" && str2 == "" {
+		return -1
 	}
-	for i := 0; i < len(s)-1; i++ {
-		if s[i] == ' ' && (s[i+1] >= 'a' && s[i+1] <= 'z') {
-			return false
+	x := len(str1)
+	z := len(str2)
+	for i := 0; i <= len(str1)-1; i++ {
+		if str1[i] == str2[i] {
+			x--
+			z--
 		}
 	}
-	return true
+	result := x + z
+	return result
 }
+
 func main() {
-	fmt.Println(IsCapitalized("Hello! How are you?"))
-	fmt.Println(IsCapitalized("Hello How Are You"))
-	fmt.Println(IsCapitalized("Whats 4this 100K?"))
-	fmt.Println(IsCapitalized("Whatsthis4"))
-	fmt.Println(IsCapitalized("!!!!Whatsthis4"))
-	fmt.Println(IsCapitalized(""))
+	fmt.Println(WeAreUnique("foo", "boo"))
+	fmt.Println(WeAreUnique("", ""))
+	fmt.Println(WeAreUnique("abc", "def"))
 }
