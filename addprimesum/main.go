@@ -6,48 +6,69 @@ import (
 	"github.com/01-edu/z01"
 )
 
-func IsPrime(input int) bool {
-	if input == 1 {
-		return false
-	} else if input == 2 {
-		return true
-	} else if input <= 0 {
-		return false
+func Atoi(input string) int {
+	result := 0
+	for _, char := range input {
+		result = result*10 + int(char-'0')
 	}
-	for i := 2; i*i <= input; i++ {
-		if input%i == 0 {
+	return result
+}
+
+func isPrime(n int) bool {
+	for i := 2; i*i <= n; i++ {
+		if n%i == 0 {
 			return false
 		}
 	}
 	return true
 }
 
-func Sum_PreviousPrime(result int) int {
-	Sum := 0
-	for i := result; i >= 2; i-- {
-		if IsPrime(i) {
-			Sum += i
-		} else {
-			continue
+func sumprev(n int) int {
+	sum := 0
+	for n >= 2 {
+		if isPrime(n) {
+			sum += n
+			n--
+		}
+		if !isPrime(n) {
+			n--
 		}
 	}
-	return Sum
+	return sum
 }
 
-func Atoi(k string) int {
-	result := 0
-	for i := 0; i < len(k); i++ {
-		result = result*10 + int(k[i]) - '0'
+func printchar(n int) {
+	if n < 0 {
+		z01.PrintRune('0')
+		z01.PrintRune('\n')
+
+		return
 	}
-	return result
-}
 
-func runee(k int) rune {
-	
-
-
+	if n == 0 {
+		return
+	}
+	printchar(n / 10)
+	z01.PrintRune(rune(n%10) + '0')
 }
 
 func main() {
-	z01.PrintRune(runee(Sum_PreviousPrime(Atoi(os.Args[1]))))
+
+	if len(os.Args) != 2 {
+		z01.PrintRune('0')
+		z01.PrintRune('\n')
+
+		return
+	}
+	input := Atoi(os.Args[1])
+	sum := sumprev(input)
+	if sum == 0 {
+		z01.PrintRune('0')
+		z01.PrintRune('\n')
+		return
+	}
+
+	printchar(sum)
+	z01.PrintRune('\n')
+
 }
