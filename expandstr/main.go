@@ -6,25 +6,23 @@ import (
 )
 
 func main() {
-	myArg := os.Args[1]
-	newStr := ""
 	if len(os.Args) > 2 {
-		fmt.Print()
-		return
-	} else if myArg == "" {
 		fmt.Println()
 		return
 	}
-
-	for index, char := range myArg {
-		if (char >= 'a' && char <= 'z') || char == '\'' {
+	input := os.Args[1]
+	newStr := ""
+	for index, char := range input {
+		if char >= 'a' && char <= 'z' || char == '\'' {
 			newStr += string(char)
-		} else if index < len(myArg)-1 && (char == ' ' && index != 0) && myArg[index+1] >= 'a' && myArg[index+1] <= 'z' {
-			newStr += string(char)
-			newStr += " "
-
+		}
+		if char == ' ' {
+			if len(newStr) > 0 && index < len(input)-1 && (input[index+1]) >= 'a' && (input[index+1] <= 'z') {
+				newStr += " "
+				newStr += " "
+				newStr += " "
+			}
 		}
 	}
-	fmt.Print(newStr)
+	fmt.Println(newStr)
 }
-
