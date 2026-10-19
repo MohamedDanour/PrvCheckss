@@ -1,4 +1,3 @@
-package inter
 package main
 
 import (
