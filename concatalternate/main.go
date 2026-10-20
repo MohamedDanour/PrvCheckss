@@ -6,16 +6,22 @@ import (
 
 func ConcatAlternate(slice1, slice2 []int) []int {
 	var res []int
-	for i := 0; i <= len(slice2)-1; i++ {
-		if i < len(slice1) {
+
+	for i := 0; i < len(slice1) || i < len(slice2); i++ {
+		if i < len(slice1) && i < len(slice2) {
+			if slice1[i] > slice2[i] {
+				res = append(res, slice2[i], slice1[i])
+			} else {
+				res = append(res, slice1[i], slice2[i])
+			}
+		} else if i < len(slice1) {
 			res = append(res, slice1[i])
-		}
-		if i < len(slice2) {
+		} else {
 			res = append(res, slice2[i])
 		}
 	}
-	return res
 
+	return res
 }
 
 func main() {
